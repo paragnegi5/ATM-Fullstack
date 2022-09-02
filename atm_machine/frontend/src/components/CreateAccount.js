@@ -23,6 +23,14 @@ export default class CreateAccount extends Component{
 						Create an account
 					</Typography>
 				</Grid>
+
+				<Grid item xs={12} align="center">
+					<FormControl component="fieldset">
+						<TextField required={true} type="password" inputProps={{min:1000, max:9999}} />
+						<FormHelperText>
+							
+					</FormControl>
+				</Grid>
 			</Grid>
 		);
 	}
