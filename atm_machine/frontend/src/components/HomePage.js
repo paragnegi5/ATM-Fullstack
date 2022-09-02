@@ -20,7 +20,7 @@ export default class HomePage extends Component{
 			<Grid container spacing={1}>
 				<Grid item xs={12} align="center">
 					<Typography component="h4" variant="h4">
-						Homepage
+						Homepage 2.1
 					</Typography>
 				</Grid>
 			</Grid>
