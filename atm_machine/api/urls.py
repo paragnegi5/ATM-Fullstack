@@ -3,5 +3,9 @@ from .views import AccountView, CreateAccountView
 
 urlpatterns = [
     path('accounts',AccountView.as_view()),
-    path('createaccount', CreateAccountView.as_view())
+    path('createaccount', CreateAccountView.as_view()),
+    # path('changepin'),
+    # path('withdrawmoney'),
+    # path('depositmoney', DepositMoneyView.as_view())
+    # path('transfermoney')
 ]

@@ -4,10 +4,30 @@ from .models import Account
 class AccountSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Account
-		fields = ('id', 'account_number', 'email', 'firstname', 'lastname', 'balance', 'created_at')
+		fields = ('id', 'account_number', 'email', 'firstname', 'lastname', 'balance', 'created_at', 'account_pin')
 
 
 class CreateAccountSerializer(serializers.ModelSerializer):
 	class Meta:
 		model=Account
 		fields = ('account_pin', 'email', 'firstname', 'lastname', 'balance')
+
+class DepositMoneySerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Account
+		fields = ('account_number','balance')
+
+class WithdrawMoneySerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Account
+		fields = ('account_number','money')
+
+class ChangePinSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Account
+		fields = ('account_number','otp','new_pin')
+
+class TransferMoneySerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Account
+		fields = ('debit_account_number','credit_account_number','money')

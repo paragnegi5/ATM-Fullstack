@@ -1,5 +1,6 @@
 from django.db import models
 from random import randint
+from django.contrib.auth.models import UserManager
 
 def generate_account_number():
 	account_number="5"

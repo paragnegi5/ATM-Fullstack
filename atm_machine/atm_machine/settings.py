@@ -25,7 +25,9 @@ SECRET_KEY = ')hc@cvr7e+-ye9m69e^aee$0=)^lpudxmk*6e4-k$bl&0@y$c='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','http://localhost:3000','http://127.0.0.1:3000']
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -39,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
-    'frontend.apps.FrontendConfig'
+    # 'frontend.apps.FrontendConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'atm_machine.urls'
