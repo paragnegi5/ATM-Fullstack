@@ -48,7 +48,7 @@ function App() {
       </Route>
 
       <Route path="/pinchange">
-            <CreateAccount  />
+            <PinChange  />
       </Route>
  
       <Route exact path="/">

@@ -21,6 +21,6 @@ export function createAccount(first_name , last_name , email , balance ,account_
                 "balance": balance,
                 "account_pin": account_pin
             }
-          }).then((rest)=>{console.log(rest)});
+          }).then((rest)=>dispatch(validCreateAccount(rest.data)));
 	}
 }

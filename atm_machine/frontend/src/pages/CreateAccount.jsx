@@ -5,12 +5,13 @@
 // 		 <p>This is the Create Account Page</p>
 // 		)
 // 	}
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useDispatch,useSelector } from 'react-redux';
 import { createAccount } from '../redux/action/createAccountAction'
+import { useHistory } from 'react-router-dom';
 
 export default function CreateAccount() {
 	const [name,setName] =  React.useState("");
@@ -18,11 +19,18 @@ export default function CreateAccount() {
 	const [lastname,setLastname] =  React.useState("");
     const [pin,setPin] =  React.useState(null);
 	const [balance,setBalance] =  React.useState(null);
+	let history=useHistory()
 	let dispatch=useDispatch()
+	const loginstate=useSelector(state=>state.validateLogin)
 	function handlesignup()
 	{
        dispatch(createAccount(name , lastname , email , balance , pin))
+	   history.push('/login')
 	}
+
+	// useEffect(()=>{
+	// 	history.push('/')
+	// },[loginstate.isloggedin])
 	return (
 	  <Box
 		component="form"

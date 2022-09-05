@@ -65,7 +65,7 @@ function Login() {
         <Button variant="contained" color="success" style={{marginTop:"50px", width:"150px",height:"45px"}} onClick={handlelogin}>
             Login
         </Button>
-      <Button variant="contained" style={{marginTop:"50px", width:"150px",height:"45px"}} onClick={handlelogin}>Create Account</Button>
+      <Button variant="contained" style={{marginTop:"50px", width:"150px",height:"45px"}} onClick={()=>{history.push('/createaccount')}}>Create Account</Button>
     </Stack>
     </Grid>
     )
