@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Account
+from .models import Account, Otp
 
 class AccountSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -24,8 +24,8 @@ class WithdrawMoneySerializer(serializers.ModelSerializer):
 
 class ChangePinSerializer(serializers.ModelSerializer):
 	class Meta:
-		model=Account
-		fields = ('account_number','otp','new_pin')
+		model=Otp
+		fields = ('account_number',)
 
 class TransferMoneySerializer(serializers.ModelSerializer):
 	class Meta:

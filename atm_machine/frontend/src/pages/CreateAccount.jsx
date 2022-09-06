@@ -25,12 +25,17 @@ export default function CreateAccount() {
 	function handlesignup()
 	{
        dispatch(createAccount(name , lastname , email , balance , pin))
-	   history.push('/login')
+	//    history.push('/login')
 	}
 
-	// useEffect(()=>{
-	// 	history.push('/')
-	// },[loginstate.isloggedin])
+	useEffect(()=>{
+		console.log("a")
+
+		return ()=>{
+			console.log("cleanup")
+		}
+	},[])
+
 	return (
 	  <Box
 		component="form"

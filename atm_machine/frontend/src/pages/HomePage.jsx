@@ -21,6 +21,13 @@ import Grid from '@mui/material/Grid';
 export default function DepositMoney(){
 	const loginstate=useSelector(state=>state.validateLogin)
 	let history=useHistory();
+	useEffect(()=>{
+		console.log("a")
+
+		return ()=>{
+			console.log("cleanup")
+		}
+	},[])
 	// console.log("faf")
 	// if (loginstate.isloggedin){
 	return(

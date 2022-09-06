@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import generics, status
 from .serializers import AccountSerializer, CreateAccountSerializer, DepositMoneySerializer, WithdrawMoneySerializer, ChangePinSerializer, TransferMoneySerializer
-from .models import Account
+from .models import Account, Otp
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .email import email_to_send
@@ -44,6 +44,18 @@ class CreateAccountView(APIView):
 		return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+
+class getotp(APIView):
+	serializer_class=ChangePinSerializer
+	
+	def post(self,request,format=None):
+		serializer=self.serializer_class(data=request.data)
+		if serializer.is_valid():
+			account_number=serializer.data.get('account_number')
+			otp=Otp.objects.filter(account_number= account_number)[0]
+			return Response({'Accepted'}, status=status.HTTP_201_CREATED)
+		return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+		
 # class DepositMoneyView(generics.UpdateAPIView):
 # 	queryset=Account.objects.all()
 # 	serializer_class=DepositMoneySerializer

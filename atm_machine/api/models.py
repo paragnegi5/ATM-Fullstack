@@ -15,12 +15,19 @@ def generate_account_number():
 			break
 	return account_number
 
+def generate_otp():
+	return 1234
+
 # Create your models here.
 class Account(models.Model):
-	account_number = models.IntegerField(unique=True, default=generate_account_number)
+	account_number = models.IntegerField(default=generate_account_number)
 	account_pin = models.IntegerField()
 	email = models.CharField(max_length=50)
 	firstname = models.CharField(max_length=30)
 	lastname = models.CharField(max_length=30)
 	balance = models.IntegerField()
 	created_at = models.DateTimeField(auto_now_add=True)
+
+class Otp(models.Model):
+	account_number=models.IntegerField()
+	otp=models.IntegerField(default=generate_otp)
